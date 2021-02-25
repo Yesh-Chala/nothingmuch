@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main(){
+  int i;
+  char str[32][20] = {"auto","break","case","const","char","continue","default","do",
+		       "double","else","enum","extern","for","float","goto","if","int",
+		       "long","return","register","short","signed","switch","static",
+		       "sizeof","struct","typedef","unsigned","union","volatile","void","while"};
+  char key[10];
+  clrscr();
+  printf("\nenter keyword:");
+  scanf("%s",key);
+  for(i=0;i<32;i++){
+   if(check(str[i],key)){
+     printf("keyword found");
+     break;
+   }
+  }
+  if(i>=32)
+    printf("keyword not found");
+ }
+ int check(char a[10], char key[10]){
+   int flag=1,i=0;
+   while(a[i]!='\0'||key[i]!='\0'){
+      if(a[i]!=key[i]){
+	 flag=0;
+	 break;
+       }
+     else
+       i++;
+   }
+   return flag;
+  }
